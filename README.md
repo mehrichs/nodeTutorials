@@ -16,3 +16,7 @@ Here are a few ways you can install Node.js on a Windows machine
 
 - Use the installation wizard: download at <https://nodejs.org/en/> and just select options until install is done
 - If you have Chocolately package manager you can install Node.js with the following command: ```choco install nodejs.install```
+
+## How to execute example code
+
+Pass the path/filename as a parameter to the node command in command line for example : ```node ./file.js```
