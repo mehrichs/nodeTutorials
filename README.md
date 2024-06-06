@@ -14,5 +14,5 @@ First and foremost you'll need a basic understanding of javascript, and node mus
 
 Here are a few ways you can install Node.js on a Windows machine
 
-- Use the installation wizard: download at https://nodejs.org/en/ and just select options until install is done
+- Use the installation wizard: download at <https://nodejs.org/en/> and just select options until install is done
 - If you have Chocolately package manager you can install Node.js with the following command: choco install nodejs.install
