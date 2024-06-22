@@ -13,18 +13,18 @@ app.set('views', 'Views');
 app.listen(3000);
 
 app.get('/', (request, response) => {
-    response.render('index');
+    response.render('index', {title: 'Home'});
 });
 
 app.get('/about', (request, response) => {
-   response.render('about');
+   response.render('about', {title: 'About'});
 });
 
 app.get('/blogs/create', (request, response) => {
-    response.render('create');
+    response.render('create', {title: 'Create a new Blog'});
 });
 
 // 404 page only hit if none of the other handlers above are a match for the requested url
 app.use((request, response) => {
-    response.status(404).render('404');
+    response.status(404).render('404', {title: '404'});
 });
