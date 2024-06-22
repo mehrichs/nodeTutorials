@@ -2,7 +2,7 @@
   "name": "nodetutorials",
   "version": "1.0.0",
   "description": "This repository is a place to play around with node.js and have fun learning what is it all about.",
-  "main": "./TestingThingsOut/ClientAndServer/server.js",
+  "main": "./TestingThingsOut/ClientAndServer/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
