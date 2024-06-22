@@ -13,7 +13,12 @@ app.set('views', 'Views');
 app.listen(3000);
 
 app.get('/', (request, response) => {
-    response.render('index', {title: 'Home'});
+    const blogs = [
+        {title:'Ready Player One', snippet:'Sci-Fi book about a virtual reality contest where the winner gets control of the game.'},
+        {title:'Ready Player Two', snippet:'Sci-Fi book about the winner of a virtual reality contest and how he deals with the fallout.'},
+        {title:'Tales from a Dying Earth', snippet:'Sci-Fi book about post apocalyptic Earth in the far off future when the sun is running out of fuel.'}
+    ];
+    response.render('index', {title: 'Home', blogs});
 });
 
 app.get('/about', (request, response) => {
