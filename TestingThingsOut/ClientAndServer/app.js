@@ -27,5 +27,5 @@ app.get('/about-us', (request, response) => {
 
 // 404 page only hit if none of the other handlers above are a match for the requested url
 app.use((request, response) => {
-    response.sendFile('404.html', {root: path.join(__dirname, '/Views')});
+    response.status(404).sendFile('404.html', {root: path.join(__dirname, '/Views')});
 });
