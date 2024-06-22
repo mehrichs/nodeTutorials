@@ -1,24 +1,11 @@
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width-device-width, initial-scale=1.0">
-        <title>Blog It All | <%= title %></title>
-    </head>
+    <%- include('./PartialViews/header.ejs') %>
     <body>
-        <nav>
-            <div class="site-title">
-                <a href="/"><h1>Blogity Blog</h1></a>
-                <p>A blog site</p>
-            </div>
-            <ul>
-                <li><a href="/">Blogs</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/blogs/create">New Blog</a></li>
-            </ul>
-        </nav>
+        <%- include('./PartialViews/nav.ejs') %>
         <div class="about content">
             <h2>About Us</h2>
             <p>Not much to say here. It's just me so far, at least until I can form an LLC, hire a bunch of minions and then try to take over the world that is.</p>
         </div>
+        <%- include('./PartialViews/footer.ejs') %>
     </body>
 </html>

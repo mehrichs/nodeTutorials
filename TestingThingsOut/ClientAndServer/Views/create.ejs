@@ -1,21 +1,7 @@
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width-device-width, initial-scale=1.0">
-        <title>Blog It All  | <%= title %></title>
-    </head>
+    <%- include('./PartialViews/header.ejs') %>
     <body>
-        <nav>
-            <div class="site-title">
-                <a href="/"><h1>Blogity Blog</h1></a>
-                <p>A blog site</p>
-            </div>
-            <ul>
-                <li><a href="/">Blogs</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/blogs/create">New Blog</a></li>
-            </ul>
-        </nav>
+        <%- include('./PartialViews/nav.ejs') %>
         <div class="create-blog content">
             <form>
                 <label for="title">Blog Title:</label>
@@ -27,5 +13,6 @@
                 <button>Submit</button>
             </form>
         </div>
+        <%- include('./PartialViews/footer.ejs') %>
     </body>
 </html>
