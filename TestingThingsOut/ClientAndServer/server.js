@@ -1,9 +1,8 @@
 const http = require('http');
 const fs = require('fs');
+const _ = require('lodash');
 
 const server = http.createServer((request, response) => {
-    console.log(request.url, request.method);
-
     //set header content type
     response.setHeader('Content-Type', 'text/html')
 

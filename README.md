@@ -22,3 +22,7 @@ Here are a few ways you can install Node.js on a Windows machine
 Pass the path/filename as a parameter to the node command in command line for example : ```node ./file.js```
 For ease of testing server code maybe you'd prefer to use nodemon to automatically restart the service when
 changes are detected in the directory. In which case in the terminal you could do something like: ```nodemon ./server.js```
+
+## Express.js
+
+Express is a minimalistic web application framework for Node, we're going to use it for routing

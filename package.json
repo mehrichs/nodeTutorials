@@ -1,0 +1,15 @@
+{
+  "name": "nodetutorials",
+  "version": "1.0.0",
+  "description": "This repository is a place to play around with node.js and have fun learning what is it all about.",
+  "main": "./TestingThingsOut/ClientAndServer/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "lodash": "^4.17.21"
+  }
+}
