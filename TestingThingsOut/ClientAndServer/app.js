@@ -1,9 +1,20 @@
 const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
+require('dotenv').config()
+const mongoose = require('mongoose');
+const Blog = require('./Models/blog');
+const dbUri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${process.env.DB}?retryWrites=true&w=majority&appName=${process.env.DB_APP_NAME}`;
 
 // express app
 const app = express();
+
+const port = 3000;
+
+// connect to Mongodb
+mongoose.connect(dbUri)
+    .then((result) => app.listen(port))
+    .catch((error) => console.log(error));
 
 // register view engine
 app.set('view engine', 'ejs');
