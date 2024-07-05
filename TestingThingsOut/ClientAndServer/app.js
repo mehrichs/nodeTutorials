@@ -9,20 +9,15 @@ const dbUri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@$
 // express app
 const app = express();
 
-const port = 3000;
-
 // connect to Mongodb
 mongoose.connect(dbUri)
-    .then((result) => app.listen(port))
-    .catch((error) => console.log(error));
+    .then(result => app.listen(process.env.PORT))
+    .catch(error => console.log(error));
 
 // register view engine
 app.set('view engine', 'ejs');
 // set the directory that our views are stored in
 app.set('views', 'Views');
-
-// listen for requests
-app.listen(3000);
 
 // middleware & static files
 app.use(express.static('Public'));
