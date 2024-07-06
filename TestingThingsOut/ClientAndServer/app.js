@@ -21,28 +21,69 @@ app.set('views', 'Views');
 
 // middleware & static files
 app.use(express.static('Public'));
+app.use(express.urlencoded({ extended: true }));
 // 3rd party middleware logger
 app.use(morgan('dev'));
+app.use((request, response, next) => {
+    response.locals.path = request.path;
+    next();
+});
 
-// route handlers
+// routes
 app.get('/', (request, response) => {
-    const blogs = [
-        {title:'Ready Player One', snippet:'Sci-Fi book about a virtual reality contest where the winner gets control of the game.'},
-        {title:'Ready Player Two', snippet:'Sci-Fi book about the winner of a virtual reality contest and how he deals with the fallout.'},
-        {title:'Tales from a Dying Earth', snippet:'Sci-Fi book about post apocalyptic Earth in the far off future when the sun is running out of fuel.'}
-    ];
-    response.render('index', {title: 'Home', blogs});
+    response.redirect('/blogs');
 });
 
 app.get('/about', (request, response) => {
-   response.render('about', {title: 'About'});
+   response.render('about', { title: 'About' });
 });
 
+// blog routes
 app.get('/blogs/create', (request, response) => {
-    response.render('create', {title: 'Create a new Blog'});
+    response.render('create', { title: 'Create a new Blog' });
+});
+
+app.get('/blogs', (request, response) => {
+    Blog.find()
+    .sort({ createdAt: -1 })
+    .then(result => {
+        response.render('index', { title: 'All Blogs', blogs: result });
+    }).catch(error => {
+        console.log(error);
+    });
+});
+
+app.post('/blogs', (request, response) => {
+    const blog = new Blog(request.body);
+    blog.save()
+    .then(result => {
+        response.redirect('/blogs');
+    }).catch(error => {
+        console.log(error);
+    });
+});
+
+app.get('/blogs/:id', (request, response) => {
+    const id = request.params.id;
+    Blog.findById(id)
+    .then(result => {
+        response.render('details', { blog: result, title: 'Blog Details' });
+    }).catch(error => {
+        console.log(error);
+    });
+});
+
+app.delete('/blogs/:id', (request, response) => {
+    const id = request.params.id;
+    Blog.findByIdAndDelete(id)
+    .then(result => {
+        response.json({ redirect: '/blogs' });
+    }).catch(error => {
+        console.log(error);
+    });
 });
 
 // 404 page only hit if none of the other handlers above are a match for the requested url
 app.use((request, response) => {
-    response.status(404).render('404', {title: '404'});
+    response.status(404).render('404', { title: '404' });
 });
