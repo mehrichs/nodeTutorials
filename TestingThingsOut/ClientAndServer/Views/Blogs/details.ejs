@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include("./PartialViews/header.ejs") %>
+    <%- include("../PartialViews/header.ejs") %>
 
     <body>
-    <%- include("./PartialViews/nav.ejs") %>
+    <%- include("../PartialViews/nav.ejs") %>
 
     <div class="details content">
         <h2><%= blog.title %></h2>
@@ -13,7 +13,7 @@
         <a class="delete" data-doc="<%= blog._id %>">delete</a>
     </div>
 
-    <%- include("./PartialViews/footer.ejs") %>
+    <%- include("../PartialViews/footer.ejs") %>
 
     <script>
         const trashcan = document.querySelector('a.delete');
